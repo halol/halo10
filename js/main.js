@@ -72,7 +72,7 @@ $(document).ready(function() {
 	});
 	$('.project-details').click(function(e) {
 		e.preventDefault();
-		$('.project-details').toggle();
+		//$('.project-details').toggle();
 		$(this).parent().closest('footer').find('.project-info').slideToggle();
 	});
 });

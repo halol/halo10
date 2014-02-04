@@ -6047,6 +6047,10 @@ nav.menu li a {
   letter-spacing: 2px;
   border-bottom: 2px solid transparent;
 }
+nav ul li a:hover,
+nav.menu li a:hover {
+  padding-left: 5px;
+}
 nav ul li.active a,
 nav.menu li.active a,
 nav ul li.current_page_item a,
@@ -6211,11 +6215,14 @@ footer.project-footer .page-header h1 a {
   margin-top: 15px;
 }
 div.row[role="single-work"] ul[role="featured-images"] li {
+  width: 100%;
   display: block;
   overflow: hidden;
 }
-div.row[role="container"] {
-  padding-top: 100px;
+div.row[role="single-work"] ul[role="featured-images"] li img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 /* POSTS */
 div.panel[role="post"] {
@@ -6240,7 +6247,6 @@ div.panel[role="post"] .panel-timing {
   height: 100px;
   text-align: center;
   line-height: 1em;
-  top: 5px;
 }
 div.panel[role="post"] .panel-timing span.day-number {
   font-size: 3em;
@@ -6423,12 +6429,11 @@ div.panel[role="image-panel"] div.panel-footer span.title {
     padding-top: 80px;
   }
   nav {
-    z-index: 400!important;
+    z-index: 1010!important;
     position: fixed;
     overflow: auto;
     width: 280px!important;
-    background: white;
-    border-right: 2px solid #dddddd;
+    border-right: 2px solid #3ca166;
     padding: 20px 40px;
     left: -500px;
     top: 0!important;
@@ -6437,7 +6442,7 @@ div.panel[role="image-panel"] div.panel-footer span.title {
   }
   nav li {
     font-size: 1.4em;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #3ca166;
   }
   nav li.active a {
     color: #4e5758;
@@ -6464,7 +6469,7 @@ div.panel[role="image-panel"] div.panel-footer span.title {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 350;
+    z-index: 1000;
     width: 100%;
     height: 100%;
   }
@@ -6507,6 +6512,15 @@ div.panel[role="image-panel"] div.panel-footer span.title {
   button.menu-trigger {
     margin-right: 20px;
     background: none;
+    display: block!important;
+  }
+  .project-footer {
+    position: relative!important;
+  }
+  .project-footer h1 {
+    font-size: 2em;
+  }
+  .project-footer [role="info"] {
     display: block!important;
   }
 }
