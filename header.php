@@ -27,7 +27,7 @@
     <h4 class="pull-left">Grzegorz Hadala</h4>
 </header>
     <nav>
-        <a href="#" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo_gh3.png" alt=""></a>
+        <a href="#" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo_gh4.png" alt=""></a>
         
 		<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 		<!--
@@ -53,9 +53,6 @@
         <hr>
         <h4>Contact</h4>
         <div itemscope itemtype="http://schema.org/Person" role="vcard">
-            <p class="pull-left contact-image" itemprop="image">
-                <img class="img-circle hidden-xs hidden-lg hidden-sm hidden-md" src="https://pl.gravatar.com/userimage/15898132/675fc21b6b8f110c804355c80e9f8f5c.jpg?size=50" alt="">
-            </p>
             <div class="pull-left contact-info">
             <p itemprop="name">Grzegorz Hadala</p>
             <p itemprop="address" itemscope itemtype="http://schema.org/Address">

@@ -5986,7 +5986,7 @@ button.menu-trigger {
   bottom: 40px;
   right: 40px;
   display: none;
-  z-index: 500;
+  z-index: 999;
 }
 nav {
   color: white;
@@ -6027,12 +6027,20 @@ nav .menu ul {
 nav p {
   margin-bottom: 0;
 }
-nav ul li {
+nav ul,
+nav.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li,
+nav.menu li {
   padding-top: 5px;
   padding-bottom: 5px;
   color: #6f7b7c;
 }
-nav ul li a {
+nav ul li a,
+nav.menu li a {
   -webkit-transition: All 0.25s ease;
   transition: All 0.25s ease;
   position: relative;
@@ -6041,11 +6049,15 @@ nav ul li a {
   border-bottom: 2px solid transparent;
 }
 nav ul li.active a,
-nav ul li.current_page_item a {
+nav.menu li.active a,
+nav ul li.current_page_item a,
+nav.menu li.current_page_item a {
   color: #4e5758;
 }
 nav ul li.active a:before,
-nav ul li.current_page_item a:before {
+nav.menu li.active a:before,
+nav ul li.current_page_item a:before,
+nav.menu li.current_page_item a:before {
   content: "\f054";
   font-family: 'FontAwesome';
   display: block;
@@ -6054,35 +6066,45 @@ nav ul li.current_page_item a:before {
   font-size: 12px;
   top: 2px;
 }
-nav ul[role="social-icons"] {
+nav ul[role="social-icons"],
+nav.menu[role="social-icons"] {
   margin-bottom: 40px;
 }
 nav ul[role="social-icons"]:before,
-nav ul[role="social-icons"]:after {
+nav.menu[role="social-icons"]:before,
+nav ul[role="social-icons"]:after,
+nav.menu[role="social-icons"]:after {
   content: " ";
   display: table;
 }
-nav ul[role="social-icons"]:after {
+nav ul[role="social-icons"]:after,
+nav.menu[role="social-icons"]:after {
   clear: both;
 }
 nav ul[role="social-icons"]:before,
-nav ul[role="social-icons"]:after {
+nav.menu[role="social-icons"]:before,
+nav ul[role="social-icons"]:after,
+nav.menu[role="social-icons"]:after {
   content: " ";
   display: table;
 }
-nav ul[role="social-icons"]:after {
+nav ul[role="social-icons"]:after,
+nav.menu[role="social-icons"]:after {
   clear: both;
 }
-nav ul[role="social-icons"] > li {
+nav ul[role="social-icons"] > li,
+nav.menu[role="social-icons"] > li {
   display: block;
   float: left;
   width: 30px;
   margin-left: 5px;
 }
-nav ul[role="social-icons"] > li:first-child {
+nav ul[role="social-icons"] > li:first-child,
+nav.menu[role="social-icons"] > li:first-child {
   margin-left: 0;
 }
-nav ul[role="social-icons"] > li > a {
+nav ul[role="social-icons"] > li > a,
+nav.menu[role="social-icons"] > li > a {
   display: block;
   width: 30px;
   height: 30px;
@@ -6092,23 +6114,28 @@ nav ul[role="social-icons"] > li > a {
   -webkit-transition: All 0.25s ease;
   transition: All 0.25s ease;
 }
-nav ul[role="social-icons"] > li > a[href*="linkedin"]:hover {
+nav ul[role="social-icons"] > li > a[href*="linkedin"]:hover,
+nav.menu[role="social-icons"] > li > a[href*="linkedin"]:hover {
   background: #1985BC;
   color: white;
 }
-nav ul[role="social-icons"] > li > a[href*="github"]:hover {
+nav ul[role="social-icons"] > li > a[href*="github"]:hover,
+nav.menu[role="social-icons"] > li > a[href*="github"]:hover {
   background: #333333;
   color: white;
 }
-nav ul[role="social-icons"] > li > a[href*="facebook"]:hover {
+nav ul[role="social-icons"] > li > a[href*="facebook"]:hover,
+nav.menu[role="social-icons"] > li > a[href*="facebook"]:hover {
   background: #333333;
   color: white;
 }
-nav ul[role="social-icons"] > li > a[href*="dribble"]:hover {
+nav ul[role="social-icons"] > li > a[href*="dribble"]:hover,
+nav.menu[role="social-icons"] > li > a[href*="dribble"]:hover {
   background: #333333;
   color: white;
 }
-nav ul[role="social-icons"] > li > a[href*="vimeo"]:hover {
+nav ul[role="social-icons"] > li > a[href*="vimeo"]:hover,
+nav.menu[role="social-icons"] > li > a[href*="vimeo"]:hover {
   background: #333333;
   color: white;
 }
@@ -6187,6 +6214,7 @@ div.panel[role="post"] .panel-timing {
   height: 100px;
   text-align: center;
   line-height: 1em;
+  top: 5px;
 }
 div.panel[role="post"] .panel-timing span.day-number {
   font-size: 3em;
@@ -6290,7 +6318,7 @@ div[role="about"] img.profile {
   bottom: 50%;
   margin-bottom: -300px;
   right: -270px;
-  z-index: -100;
+  z-index: 600;
   margin-left: 40px;
   border: 200px solid #52be7f;
 }

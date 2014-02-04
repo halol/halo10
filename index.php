@@ -13,10 +13,81 @@
  * @subpackage Halo10
  */
 
-get_header(); ?>
+get_header(); 
+?>
 
-content
+
 
 <?php
+if ( have_posts() ) :
+	// Start the Loop.
+	while ( have_posts() ) : the_post();
+?>		
+<div class="row" role="container">
+	<div class="col-lg-6 col-lg-offset-1">
+        <div class="panel" role="post">
+            <div class="panel-timing">
+                <span class="day-number"><?php echo date('d'); ?></span>
+                <span class="month-year"><?php echo date('m'); ?>/<?php echo date('Y'); ?></span>
+            </div>
+            <div class="panel-heading">
+                <h2><?php the_title(); ?></h2>
+                
+            </div>
+            <div class="panel-body">
+            <?php
+			// Must be inside a loop.
+
+			if ( has_post_thumbnail() ) {
+				
+				?>
+				<div class="post-image">
+                    <div class="caption"><?php the_title(); ?></div>
+                    <?php the_post_thumbnail(); ?>
+                </div>
+            <?php
+			}
+			else {
+				
+			}
+			?>
+                
+                <div class="summary">
+                   <?php the_content(); ?>
+                </div>
+            </div>
+            <!-- Disabled for a while
+            <div class="panel-footer">
+               <a href="" class="btn btn-xs btn-default pull-left">Comments (0)</a>
+               <a href="" class="btn btn-xs btn-default pull-left"><i class="fa fa-heart fa-fw"></i> 1</a>
+                <a href="" class="btn btn-xs btn-success pull-right">View</a>
+            </div>
+            -->
+            <hr>
+        </div>
+    </div>
+
+	
+	
+	
+</div>
+		
+<?php
+	endwhile;
+	// Previous/next post navigation.
+	
+
+else :
+	// If no content, include the "No posts found" template.
+	?>
+<h2>No posts</h2>
+<?php
+
+endif;
+
+
+
+
+
 
 get_footer();
