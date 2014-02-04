@@ -16,6 +16,37 @@ body {
 	padding-right: @global-right + 20;
 	padding-left: @nav-width + (@global-left * 3);
 	padding-bottom: @global-bottom;
+	/*
+
+	Feature
+	&:before {
+		
+		font-family: 'FontAwesome';
+		font-size: 500px;
+		position: fixed;
+		display: block;
+		bottom: -200px;
+		right: 50px;
+		color: @gray-lighter;
+		animation: flyin 3s;
+		-webkit-animation: flyin 3s;
+
+	}
+	&.blog {
+		&:before {
+			content: "\f02d";
+		}
+	}
+	&.home {
+		&:before {
+			content: "\f02d";
+		}
+	}
+	&.reference {
+		&:before {
+			content: "\f02d";
+		}
+	}*/
 }
 
 
@@ -26,6 +57,14 @@ button.menu-trigger {
 
 /* madafaka */
 
+@keyframes flyin {
+	0% { bottom: -700px; right: 400px;}
+	100% { bottom: -200px; right: 50px;}
+}
+@-webkit-keyframes flyin {
+	0% { bottom: -700px; rigth: 200px;}
+	100% { bottom: -200px; rigth: 50px;}
+}
 
 @keyframes circle {
 	0% { background: @brand-success; }
@@ -272,6 +311,7 @@ div.row[role="single-work"] {
 
 	}
 	ul[role="featured-images"] {
+		margin-bottom: 40px;
 		li {
 			width: 100%;
 			display: block;
@@ -336,7 +376,7 @@ div.panel[role="post"] {
 	}
 	.panel-body {
 		.post-image {
-			height: 250px;
+			height: 350px;
 			overflow: hidden;
 			margin-bottom: 40px;
 			position: relative;
@@ -540,6 +580,9 @@ div.panel[role="image-panel"] {
 	body {
 		padding: 20px;
 		padding-top: 80px;
+		&:before { 
+			display: none;
+		}
 	}	    
 	nav {
 		z-index: 1010!important;
@@ -620,9 +663,15 @@ div.panel[role="image-panel"] {
 		display: block!important;
 	}
 	.project-footer {
+		z-index: 0!important;
+		padding: 0!important;
 		h1 {
 			font-size: 2em;
+			small {
+				display: block!important;
+			}
 		}
+		width: 100%;
 		position: relative!important;
 		[role="info"] {
 			display: block!important;

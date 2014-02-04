@@ -8,11 +8,12 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php wp_title( '|', true, 'right' ); ?></title>
+    <title><?php wp_title( '|', true, 'right' ); ?> GRZEGORZ HADALA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+	<link rel="shortcut icon" href="http://hadala.pl/favicon.ico" />
+	<link rel="icon" type="image/png" href="http://hadala.pl/favpng.png" />
 	<!-- halo -->
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
@@ -20,47 +21,31 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<?php if(function_exists('qtrans_generateLanguageSelectCode')){
-echo qtrans_generateLanguageSelectCode('image');
-}
-?>
-<button class="btn btn-xs btn-default scrolltop-button" title="To top"><i class="fa fa-chevron-up"></i></button>
-<header class="visible-xs">
-    <button class="btn btn-default menu-trigger pull-left"><i class="fa fa-bars"></i></button>
-    <h4 class="pull-left">Grzegorz Hadala</h4>
-</header>
+<body <?php body_class(); ?> >
+	<?php if(function_exists('qtrans_generateLanguageSelectCode')){
+	echo qtrans_generateLanguageSelectCode('image');
+	}
+	?>
+	<button class="btn btn-xs btn-default scrolltop-button" title="To top"><i class="fa fa-chevron-up"></i></button>
+	<header class="visible-xs">
+	    <button class="btn btn-default menu-trigger pull-left"><i class="fa fa-bars"></i></button>
+	    <h4 class="pull-left">Grzegorz Hadala</h4>
+	</header>
+
     <nav>
-        <a href="#" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo_gh4.png" alt=""></a>
+        <a href="http://www.hadala.pl" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo_gh4.png" alt=""></a>
         
 		<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-		<!--
-        <ul class="list-unstyled">
-            <li class="active"><a href="">Homepage</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">References</a></li>
-            <li><a href="">Blog</a></li>
-        </ul>-->
         <hr>
-        <h4>Work</h4>
+        <h4>Portfolio</h4>
         <?php wp_nav_menu( array( 'theme_location' => 'work-menu' ) ); ?>
-        <!--
-        <ul class="list-unstyled">
-
-            <li><a href="">All</a></li>
-            <li><a href="">Webdesign</a></li>
-            <li><a href="">Print</a></li>
-            <li><a href="">CI</a></li>
-            <li><a href="">Other</a></li>
-        </ul>
-        -->
         <hr>
-        <h4>Contact</h4>
+        <h4>Kontakt</h4>
         <div itemscope itemtype="http://schema.org/Person" role="vcard">
             <div class="pull-left contact-info">
-            <p itemprop="name">Grzegorz Hadala</p>
+            <!--<p itemprop="name">Grzegorz Hadala</p>-->
             <p itemprop="address" itemscope itemtype="http://schema.org/Address">
-              <span itemprop="work">Warsaw</span>, 
+              <span itemprop="work">Warszawa</span>, 
               <span itemprop="region">PL</span>.
             </p>
             <p itemprop="telephone"><a tabindex="-1" href="tel:48790288812">+48 790 28 88 12</a></p>
@@ -75,8 +60,3 @@ echo qtrans_generateLanguageSelectCode('image');
         </ul>
 
     </nav>
-
-
-
-<?php //wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-<?php // get_search_form(); ?>

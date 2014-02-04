@@ -5947,11 +5947,62 @@ body {
   padding-right: 40px;
   padding-left: 320px;
   padding-bottom: 40px;
+  /*
+
+	Feature
+	&:before {
+		
+		font-family: 'FontAwesome';
+		font-size: 500px;
+		position: fixed;
+		display: block;
+		bottom: -200px;
+		right: 50px;
+		color: @gray-lighter;
+		animation: flyin 3s;
+		-webkit-animation: flyin 3s;
+
+	}
+	&.blog {
+		&:before {
+			content: "\f02d";
+		}
+	}
+	&.home {
+		&:before {
+			content: "\f02d";
+		}
+	}
+	&.reference {
+		&:before {
+			content: "\f02d";
+		}
+	}*/
 }
 button.menu-trigger {
   display: none;
 }
 /* madafaka */
+@keyframes flyin {
+  0% {
+    bottom: -700px;
+    right: 400px;
+  }
+  100% {
+    bottom: -200px;
+    right: 50px;
+  }
+}
+@-webkit-keyframes flyin {
+  0% {
+    bottom: -700px;
+    rigth: 200px;
+  }
+  100% {
+    bottom: -200px;
+    rigth: 50px;
+  }
+}
 @keyframes circle {
   0% {
     background: #52be7f;
@@ -6214,6 +6265,9 @@ footer.project-footer .page-header h1 button,
 footer.project-footer .page-header h1 a {
   margin-top: 15px;
 }
+div.row[role="single-work"] ul[role="featured-images"] {
+  margin-bottom: 40px;
+}
 div.row[role="single-work"] ul[role="featured-images"] li {
   width: 100%;
   display: block;
@@ -6259,7 +6313,7 @@ div.panel[role="post"] .panel-timing span.month-year {
   font-size: 0.8em;
 }
 div.panel[role="post"] .panel-body .post-image {
-  height: 250px;
+  height: 350px;
   overflow: hidden;
   margin-bottom: 40px;
   position: relative;
@@ -6428,6 +6482,9 @@ div.panel[role="image-panel"] div.panel-footer span.title {
     padding: 20px;
     padding-top: 80px;
   }
+  body:before {
+    display: none;
+  }
   nav {
     z-index: 1010!important;
     position: fixed;
@@ -6515,10 +6572,16 @@ div.panel[role="image-panel"] div.panel-footer span.title {
     display: block!important;
   }
   .project-footer {
+    z-index: 0!important;
+    padding: 0!important;
+    width: 100%;
     position: relative!important;
   }
   .project-footer h1 {
     font-size: 2em;
+  }
+  .project-footer h1 small {
+    display: block!important;
   }
   .project-footer [role="info"] {
     display: block!important;

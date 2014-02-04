@@ -80,7 +80,7 @@ if ( have_posts() ) :
 else :
 	// If no content, include the "No posts found" template.
 	?>
-<h2>No posts</h2>
+<h2><i class="fa fa-meh-o"></i></h2>
 <?php
 
 endif;

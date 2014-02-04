@@ -29,6 +29,6 @@ function the_slug($echo=true){
 
 function the_profile($slug) {
 	if ($slug == "about") {
-		echo '<img class="img-circle pull-right profile" src="https://pl.gravatar.com/userimage/15898132/675fc21b6b8f110c804355c80e9f8f5c.jpg?size=400" alt="">';
+		echo '<img class="img-circle pull-right profile hidden-xs hidden-sm" src="https://pl.gravatar.com/userimage/15898132/675fc21b6b8f110c804355c80e9f8f5c.jpg?size=400" alt="">';
 	}
 }
