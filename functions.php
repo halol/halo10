@@ -15,6 +15,8 @@ add_action( 'init', 'register_my_menus' );
 add_theme_support( 'post-thumbnails' ); 
 
 
+
+
 // Slug
 function the_slug($echo=true){
 	$slug = basename(get_permalink());

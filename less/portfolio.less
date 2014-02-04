@@ -44,8 +44,8 @@ button.menu-trigger {
 
 .scrolltop-button {
 	position: fixed;
-	bottom:40px;
-	right: 40px;
+	bottom:38px;
+	right: 7px;
 	display: none;
 	z-index: 999;
 }
@@ -73,10 +73,11 @@ nav {
 		height: 100px;
 		border-radius: 999px;
 		background: darken(@brand-success, 70%);
+		margin: 0 auto;
 		margin-bottom: 40px;
 		//animation: circle 5s infinite;
 		//-webkit-animation: circle 5s infinite;
-		margin-left: -20px;
+
 	}
 	.menu {
 		ul {
@@ -211,10 +212,11 @@ header[role="header"] {
 			margin: 0;
 			padding: 0;
 
-			button {
+			button, a {
 				margin-top: 15px;
-				& + button {
-				margin-right: 10px;
+				& + button, 
+				& + a {
+				//margin-right: 10px;
 				}
 			}
 		}
@@ -230,6 +232,52 @@ header[role="header"] {
 		display: none;
 	}
 }
+
+
+footer.project-footer {
+	position: fixed;
+	background: white;
+	z-index: 400;
+	width: 100%;
+	padding-right: 365px;
+	bottom: 0;
+	div[role="info"] {
+		padding-top: 25px;
+		display: none;
+	}
+	.page-header {
+		border: 0;
+		border:0;
+		margin: 25px 0px 25px 0px;
+		h1 {
+			font-weight: 300;
+			margin: 0;
+			padding: 0;
+
+			button, a {
+				margin-top: 15px;
+				& + button, 
+				& + a {
+				//margin-right: 10px;
+				}
+			}
+		}
+	}
+
+}
+
+div.row[role="single-work"] {
+	.video {
+
+	}
+	ul[role="featured-images"] {
+		li {
+			display: block;
+			overflow: hidden;
+		}
+	}
+}
+
 div.row {
 	//background: @gray-lighter;
 	
@@ -320,7 +368,7 @@ div[role="gallery"] {
 		max-height: 600px;
 		overflow: hidden;
 		img {
-			width: 100%;
+			width: 120%;
 			height: auto;
 		}
 	}

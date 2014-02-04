@@ -1,0 +1,52 @@
+<?php
+
+/* Template Name: Portfolio Paginated */
+
+get_header();
+
+otw_pfl_scripts_styles(); /* include the necessary srctips and styles */
+?>
+
+<?php $style_width = '';
+  if( get_option( 'otw_pfl_content_width' ) ) {
+      $style_width = 'style="width:'.get_option('otw_pfl_content_width').'px;"';
+  }
+?>
+<?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
+  <?php query_posts('post_type=otw-portfolio&posts_per_page=-1&paged='.$paged); ?>
+  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+      <div class="col-lg-3 col-md-3 col-sm-6" data-type="<?php foreach(get_the_terms($post->ID, 'otw-portfolio-category') as $term) echo $term->slug.' ' ?>" data-id="id-<?php echo($post->post_name) ?>">
+        <div class="panel" role="image-panel">
+            <a href="" class="trigger"></a>
+            <div class="panel-body">
+
+                <div class="image">
+                    <?php if ( has_post_thumbnail()) { ?>
+                        <?php the_post_thumbnail('otw-portfolio-medium'); ?>
+                    <?php } else { ?>
+                            i.fa.fa-picture
+                            <!-- <div style="background:url(<?php echo plugins_url( '/otw-portfolio-light/images/pattern-1.png' ) ?>);width:<?php echo get_option('otw_pfl_thumb_size_w', '303'); ?>px;height:<?php echo get_option('otw_pfl_thumb_size_h', '210'); ?>px" title="<?php _e( 'No Image', 'otw_pfl' ); ?>"></div>-->
+                        <?php } ?>
+                    
+                </div>
+            </div>
+            <div class="panel-footer">
+                <span class="label label-default">Webdesign</span>
+                <span class="title"><?php the_title(); ?></span>
+                <a href="<?php the_permalink(); ?>" class="btn btn-xs btn-default pull-right"><i class="fa fa-eye"></i></a>
+            </div>
+        </div>
+    </div>
+  <?php endwhile; ?>
+
+
+<?php else: ?>
+    
+    <h3><i class="fa fa-meh"></i></h3>
+    
+
+<?php endif; ?>
+
+    <?php otw_pagination_pfl(); ?>
+
+<?php get_footer(); ?>

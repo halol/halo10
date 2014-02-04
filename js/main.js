@@ -71,6 +71,8 @@ $(document).ready(function() {
 		console.log('click');
 	});
 	$('.project-details').click(function(e) {
-		$(this).parent().closest('header').find('.project-info').slideToggle();
+		e.preventDefault();
+		$('.project-details').toggle();
+		$(this).parent().closest('footer').find('.project-info').slideToggle();
 	});
 });

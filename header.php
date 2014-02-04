@@ -21,7 +21,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-<button class="btn btn-lg btn-default scrolltop-button" title="To top"><i class="fa fa-chevron-up"></i></button>
+<?php if(function_exists('qtrans_generateLanguageSelectCode')){
+echo qtrans_generateLanguageSelectCode('image');
+}
+?>
+<button class="btn btn-xs btn-default scrolltop-button" title="To top"><i class="fa fa-chevron-up"></i></button>
 <header class="visible-xs">
     <button class="btn btn-default menu-trigger pull-left"><i class="fa fa-bars"></i></button>
     <h4 class="pull-left">Grzegorz Hadala</h4>

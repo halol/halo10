@@ -1,0 +1,82 @@
+<?php
+/* Template Name: Single Item */
+
+get_header();
+//otw_pfl_scripts_styles(); /* include the necessary srctips and styles */
+//otw_pfl_filter_scripts_styles();
+?>
+
+<?php $style_width = '';
+  if( get_option( 'otw_pfl_content_width' ) ) {
+      $style_width = 'style="width:'.get_option('otw_pfl_content_width').'px;"';
+  }
+?>
+
+
+KURWAAAAAAAAAAAAAA JEDEN POST KURWA
+<?php while ( have_posts() ) : the_post(); ?>
+<header role="header">
+<div class="row">
+    <div class="col-lg-7">
+        <div class="page-header">
+          <h1><?php the_title(); ?> <small>Modern clothing</small>
+          <a class="btn btn-xs btn-default pull-right project-details">
+            <i class="fa fa-search fa-fw"></i>
+          </a>
+          <a class="btn btn-xs btn-default pull-right project-details" style="display: none;">
+            <i class="fa fa-times fa-fw"></i>
+          </a>
+          <?php if(get_post_meta($post->ID, 'custom_otw-portfolio-url', true) ) { ?>
+          <a href="http://<?php echo get_post_meta($post->ID, 'custom_otw-portfolio-url', true); ?>" class="btn btn-xs btn-info pull-right">
+            <i class="fa fa-link fa-fw"></i>
+          </a>
+          <?php } ?>
+          </h1>                        
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-5 project-info" role="info">
+        
+        <?php the_content(); ?>
+        <?php if(get_post_meta($post->ID, 'custom_otw-portfolio-quote', true) ) { ?>
+            <blockquote class="otw-sc-quote bordered">
+              <p><?php echo get_post_meta($post->ID, 'custom_otw-portfolio-quote', true); ?></p>
+            </blockquote>
+        <?php } ?>
+    </div>
+</div>
+</header>
+
+
+<div class="row" role="container">   
+    
+    <div class="col-lg-7" role="gallery">
+      <div class="row">
+        <?php
+          $post_meta_data = get_post_custom($post->ID);
+          $custom_repeatable = unserialize($post_meta_data['custom_otw-portfolio-repeatable-image'][0]);
+           foreach ($custom_repeatable as $custom_image) {
+             $url = wp_get_attachment_image_src($custom_image, 'otw-porfolio-large');
+        ?>
+          <div class="col-lg-12">
+              <figure class="full-image">
+                  <?php echo '<img src="'.$url[0].'">'; ?>
+              </figure>
+          </div>
+      <?php } ?>
+       
+    </div>
+</div>
+<?php endwhile; // end of the loop. ?>
+
+<div class="row">
+  <div class="col-lg-12">
+    
+      
+      <?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'otw_pfl' ) . '</span> %title' ); ?>
+      <?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'otw_pfl' ) . '</span>' ); ?>
+    
+  </div>
+</div>
+<?php get_footer(); ?>
