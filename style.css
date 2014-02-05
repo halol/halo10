@@ -5979,6 +5979,11 @@ body {
 		}
 	}*/
 }
+body#homepage {
+  background: #52be7f;
+  color: white;
+  padding: 20px!important;
+}
 button.menu-trigger {
   display: none;
 }
@@ -6038,6 +6043,15 @@ button.menu-trigger {
   display: none;
   z-index: 999;
 }
+.logo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+  background: #000000;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
 nav {
   color: white;
   background: #52be7f;
@@ -6059,15 +6073,6 @@ nav a:hover {
 nav li.active a,
 nav li.current_page_item a {
   color: #13311f !important;
-}
-nav .logo {
-  display: block;
-  width: 100px;
-  height: 100px;
-  border-radius: 999px;
-  background: #000000;
-  margin: 0 auto;
-  margin-bottom: 40px;
 }
 nav .menu ul {
   list-style: none;
