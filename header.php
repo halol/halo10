@@ -21,11 +21,14 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> >
+<body <?php body_class(); ?> <?php if (is_front_page()) { echo 'id="homepage"'; } else {} ?>>
 	<?php if(function_exists('qtrans_generateLanguageSelectCode')){
 	echo qtrans_generateLanguageSelectCode('image');
 	}
 	?>
+    <?php
+    if (!(is_front_page())) {
+    ?>
 	<button class="btn btn-xs btn-default scrolltop-button" title="To top"><i class="fa fa-chevron-up"></i></button>
 	<header class="visible-xs">
 	    <button class="btn btn-default menu-trigger pull-left"><i class="fa fa-bars"></i></button>
@@ -60,3 +63,4 @@
         </ul>
 
     </nav>
+    <?php } ?>
