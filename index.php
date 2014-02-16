@@ -24,11 +24,14 @@ if ( have_posts() ) :
 	while ( have_posts() ) : the_post();
 ?>		
 <div class="row" role="container">
-	<div class="col-lg-6 col-lg-offset-1">
+	<div class="col-lg-6 col-lg-offset-1 col-md-8 col-md-offset-2">
         <div class="panel" role="post">
             <div class="panel-timing">
-                <span class="day-number"><?php echo date('d'); ?></span>
-                <span class="month-year"><?php echo date('m'); ?>/<?php echo date('Y'); ?></span>
+                <span class="day-number"><?php the_time('d'); ?></span>
+
+                <span class="month-year"><?php the_date('m/Y'); ?></span>
+                   
+               
             </div>
             <div class="panel-heading">
                 <h2><?php the_title(); ?></h2>

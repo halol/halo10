@@ -7,18 +7,19 @@
 @menu-font-size: 14px;
 
 
-@image-panel-height: 300px;
+@image-panel-height: 295px;
 @image-panel-footer: 37px;
-
-
+@brand-bg: #161415; //#241d22;
+@bramd-grey: @brand-bg;
 body {
 	padding-top: @global-top;
 	padding-right: @global-right + 20;
 	padding-left: @nav-width + (@global-left * 3);
 	padding-bottom: @global-bottom;
-
+	background: @brand-bg;
+	color: @gray-light;
 	&#homepage {
-		background: @brand-success;
+		background: @brand-bg;
 		color: white;
 		padding: 20px!important;
 	}
@@ -56,6 +57,18 @@ body {
 }
 
 
+.welcome {
+	margin-top: 100px;
+	img {
+		margin-left: -25px;
+	}
+	a.btn {
+		&:hover {
+			border-color: @brand-danger;
+			color: @brand-danger;
+		}
+	}
+}
 button.menu-trigger {
 	//position: absolute;
 	display: none;
@@ -100,11 +113,18 @@ button.menu-trigger {
 	width: 100px;
 	height: 100px;
 	border-radius: 999px;
-	background: darken(@brand-success, 70%);
-	margin: 0 auto;
+	//background: @brand-danger;
+	//margin: 0 auto;
+	margin-left: -20px;
 	margin-bottom: 40px;
 	//animation: circle 5s infinite;
 	//-webkit-animation: circle 5s infinite;
+	img {
+		width: 100px;
+		height: 100px;
+
+		// update
+	}
 
 }
 nav {
@@ -120,7 +140,8 @@ nav {
 		&.active,
 		&.current_page_item {
 			a {
-				color: darken(@brand-success, 40%)!important;
+				//color: darken(@brand-success, 40%)!important;
+				color: @brand-danger!important;
 			}
 		}
 	}
@@ -132,7 +153,7 @@ nav {
 			padding: 0;
 		}
 	}
-	background: @brand-success;
+	background: @brand-bg;
 	overflow: auto;
 	height: 100%;
 	
@@ -204,16 +225,25 @@ nav {
 					border-radius: 999px;
 					text-align: center;
 					line-height: 28px;
+					background: transparent;
+					clor: white;
 					.transition(All 0.25s ease);
+					&:hover {
+						background: @brand-danger;
+						padding-left: 0px;
+					}
 					&[href*="linkedin"] {
+						//.transition(none);
 						&:hover {
-							background: #1985BC;
+							//background: #1985BC;
+
 							color: white;
 						}
 					}
 					&[href*="github"] {
+						//.transition(none);
 						&:hover {
-							background: #333333;
+							//background: #333333;
 							color: white;
 						}
 					}
@@ -239,10 +269,7 @@ nav {
 			}
 		}
 	}
-	hr {
-		width: 20%;
-		margin-left: 0;
-	}
+
 	[role="vcard"] {
 		.clearfix();
 		.contact-info {
@@ -250,6 +277,11 @@ nav {
 		}
 	}
 }
+hr {
+		width: 20%;
+		margin-left: 0;
+		border-color: lighten(@brand-bg, 20%);
+	}
 header[role="header"] {
 	.page-header {
 		border:0;
@@ -258,12 +290,14 @@ header[role="header"] {
 			font-weight: 300;
 			margin: 0;
 			padding: 0;
+			
+			
+			small {
+				display: inline-block;
+				vertical-align: top;
 
-			button, a {
-				margin-top: 15px;
-				& + button, 
-				& + a {
-				//margin-right: 10px;
+				a {
+					
 				}
 			}
 		}
@@ -283,7 +317,7 @@ header[role="header"] {
 
 footer.project-footer {
 	position: fixed;
-	background: white;
+	background: @bramd-grey;
 	z-index: 400;
 	width: 100%;
 	padding-right: 365px;
@@ -308,6 +342,11 @@ footer.project-footer {
 				//margin-right: 10px;
 				}
 			}
+			small {
+				a {
+					margin-top: -7px;
+				}
+			}
 		}
 	}
 
@@ -324,9 +363,9 @@ div.row[role="single-work"] {
 			display: block;
 			overflow: hidden;
 			img {
-				width: 100%;
-				max-width: 100%;
-				height: auto;
+				width: 100%!important;
+				max-width: 100%!important;
+				height: auto!important;
 			}
 		}
 	}
@@ -345,6 +384,7 @@ div.row[role="container"] {
 /* POSTS */
 div.panel[role="post"] {
 	position: relative;
+	background: @brand-bg;
 	hr {
 		margin-top: 60px;
 		width: 50%;
@@ -498,6 +538,7 @@ div.panel[role="image-panel"] {
 	overflow: hidden;
 	padding: 0;
 	border: 2px solid transparent;
+	background: transparent;
 	a.trigger {
 		display: block;
 		position: absolute;
@@ -508,13 +549,16 @@ div.panel[role="image-panel"] {
 
 	}
 	&:hover {
-		border: 2px solid @panel-default-border;
+		//border: 2px solid @panel-default-border;
 		div.panel-footer {
 			//display: block;
 			bottom: 0px;
 		}
 		a.trigger {
 			height: @image-panel-height - @image-panel-footer;
+		}
+		div.panel-body {
+			opacity: 1;
 		}
 	}
 
@@ -523,8 +567,10 @@ div.panel[role="image-panel"] {
 	}
 	div.panel-body {
 		overflow: hidden;
-		height: 300px;
+		opacity: .5;
+		height: @image-panel-height;
 		padding: 0;
+		.transition(opacity 0.25s ease);
 		div.image {
 			
 			img {
@@ -532,8 +578,10 @@ div.panel[role="image-panel"] {
 				//left: -5%;
 				//top: -5%;
 				height: auto;
-			    //max-width: 100%;
-			    width: 150%;
+			    max-width: 100%;
+			    //width: 150%;
+			    width: 100%;
+
 			}
 		}
 		
@@ -545,11 +593,11 @@ div.panel[role="image-panel"] {
 		.transition(All 0.25s ease);
 		position: absolute;
 		bottom: -@image-panel-footer;
-		background: white;
+		background:@brand-bg;
 		width: 100%;
 		//background: @gray;
 		height: @image-panel-footer;
-		border-top: 2px solid @panel-default-border;
+		//border-top: 2px solid @panel-default-border;
 		span.label {
 			display: none;
 			color: @link-color;
@@ -584,6 +632,24 @@ div.panel[role="image-panel"] {
 
 
 @media (max-width: @screen-xs-max) {
+	.welcome {
+		margin-top: 0px;
+		img {
+			//margin-left: -20px!important;
+
+		}
+		a {
+			margin: 0 auto;
+		}
+		.container {
+			text-align: center;
+			h1 {
+				text-align: left;
+				font-size: 2.2em;
+				margin-bottom: 50px;
+			}
+		}
+	}
 	body {
 		padding: 20px;
 		padding-top: 80px;
@@ -597,14 +663,14 @@ div.panel[role="image-panel"] {
 		overflow: auto;
 		width: 280px!important;
 		//background: white;
-		border-right: 2px solid darken(@brand-success, 10%);
+		//border-right: 2px solid darken(@brand-success, 10%);
 		padding: 20px 40px;
 		left: -500px;
 		top: 0!important;
 		height:100%;
 		li {
 			font-size: 1.4em;
-			border-bottom: 1px solid darken(@brand-success, 10%);
+			//border-bottom: 1px solid darken(@brand-success, 10%);
 			&.active {
 				a {
 					color: @link-hover-color;
@@ -651,8 +717,8 @@ div.panel[role="image-panel"] {
 		left: 0;
 		padding: 10px;
 		z-index: 300;
-		background: white;
-		border-bottom: 2px solid @panel-default-border;
+		//background: white;
+		//border-bottom: 2px solid @panel-default-border;
 		width: 100%;
 		.clearfix();
 

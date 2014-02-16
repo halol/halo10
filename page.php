@@ -33,9 +33,6 @@ if ( $slug != "work") {
 ?>
 <div class="row" role="container"> 
 	<div class="col-lg-6 col-md-6 col-sm-6" role="<?php the_slug(); ?>">
-		<?php
-			the_profile(the_slug($echo=false));
-		?>
 		<?php the_content(); ?>
 	</div>
 </div>

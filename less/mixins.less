@@ -447,7 +447,7 @@
 .button-variant(@color; @background; @border) {
   color: @border;
   //background-color: @background;
-  background-color: white;
+  background-color: transparent;
   border-color: @border;
   border-width: 2px;
   font-weight: 700;
@@ -459,7 +459,7 @@
   .open .dropdown-toggle& {
     color: darken(@border, 12%);
     //background-color: darken(@background, 8%);
-    background-color: white;
+    background-color: fade(@background, 10%);
         border-color: darken(@border, 12%);
   }
   &:active,
@@ -553,7 +553,7 @@
 // -------------------------
 // More easily include all the states for responsive-utilities.less.
 .responsive-visibility() {
-  display: block !important;
+  display: inline-block !important;
   table&  { display: table; }
   tr&     { display: table-row !important; }
   th&,
