@@ -5,8 +5,6 @@
 	"default": {
 
 		"host": "hadala.pl",
-		"username": "garazkre",  // or null for anonymous login
-		"password": "niema1sxcv",
 		"path": "/public_html/wp-content/themes/halo10/",
 
 		"upload_on_save": true // set *false* if you do not want to upload on save!
